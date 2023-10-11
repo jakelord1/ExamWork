@@ -21,5 +21,11 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ToDo.txt" />
+    <Text Include="Words.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Functions.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
