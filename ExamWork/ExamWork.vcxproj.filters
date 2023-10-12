@@ -18,6 +18,9 @@
     <ClCompile Include="ExamWork.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Word.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ToDo.txt" />
@@ -25,6 +28,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Word.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Statistic.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

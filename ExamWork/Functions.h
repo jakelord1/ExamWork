@@ -3,8 +3,14 @@
 #include <fstream>
 #include <ctime>
 #include <string>
-#include "Functions.h"
+#include "Statistic.h"
+#include "Word.h"
 using namespace std;
+
+string GetWord();
+void AddWord();
+Statistic Game();
+void Picture(int f);
 
 string GetWord() {
 	ifstream in;
@@ -37,4 +43,124 @@ void AddWord() {
 		word[i] += 5;
 	}
 	out << '\n' << word;
+}
+
+Statistic Game() {
+	Word game_word(GetWord());
+	int fails = 0;
+	time_t time1 = time(NULL);
+	do {
+		Picture(fails);
+		if (!game_word.GetLetter()) {
+			fails++;
+			system("cls");
+			if (fails == 6) {
+				Picture(fails);
+				game_word.SetLose(1);
+				break;
+			}
+		}
+	} while (game_word.GetLoses() != 1 || game_word.GetWins() != 1);
+	time_t time2 = time(NULL);
+	game_word.SetT(difftime(time2, time1));
+	return game_word.GetStats();
+}
+
+
+void Picture(int f) {
+	switch (f) {
+	case 0: {
+		cout << "                     \n" <<
+			"    Y----------Y     \n" <<
+			"    |          |     \n" <<
+			"    |          |     \n" <<
+			"    |                \n" <<
+			"    |                \n" <<
+			"    |                \n" <<
+			"    |                \n" <<
+			"    |                \n" <<
+			"    |                \n";
+		break;
+	}
+	case 1: {
+		cout << "                     \n" <<
+			"    Y----------Y     \n" <<
+			"    |          |     \n" <<
+			"    |          |     \n" <<
+			"    |          0     \n" <<
+			"    |                \n" <<
+			"    |                \n" <<
+			"    |                \n" <<
+			"    |                \n" <<
+			"    |                \n";
+		break;
+	}
+	case 2: {
+		cout << "                     \n" <<
+			"    Y----------Y     \n" <<
+			"    |          |     \n" <<
+			"    |          |     \n" <<
+			"    |          0     \n" <<
+			"    |          I     \n" <<
+			"    |          I     \n" <<
+			"    |          I     \n" <<
+			"    |                \n" <<
+			"    |                 \n";
+		break;
+	}
+	case 3: {
+		cout << "                     \n" <<
+			"    Y----------Y     \n" <<
+			"    |          |     \n" <<
+			"    |          |     \n" <<
+			"    |          0     \n" <<
+			"    |         /I     \n" <<
+			"    |        / I     \n" <<
+			"    |          I     \n" <<
+			"    |                \n" <<
+			"    |                \n";
+		break;
+	}
+	case 4: {
+		cout << "                     \n" <<
+			"    Y----------Y     \n" <<
+			"    |          |     \n" <<
+			"    |          |     \n" <<
+			"    |          0     \n" <<
+			"    |         /I\\   \n" <<
+			"    |        / I \\  \n" <<
+			"    |          I     \n" <<
+			"    |                \n" <<
+			"    |                \n";
+		break;
+	}
+	case 5: {
+		cout << "                     \n" <<
+			"    Y----------Y     \n" <<
+			"    |          |     \n" <<
+			"    |          |     \n" <<
+			"    |          0     \n" <<
+			"    |         /I\\   \n" <<
+			"    |        / I \\  \n" <<
+			"    |          I     \n" <<
+			"    |         /      \n" <<
+			"    |        /        \n";
+		break;
+	}
+	case 6: {
+		cout << "                     \n" <<
+			"    Y----------Y     \n" <<
+			"    |          |     \n" <<
+			"    |          |     \n" <<
+			"    |          0     \n" <<
+			"    |         /I\\   \n" <<
+			"    |        / I \\  \n" <<
+			"    |          I     \n" <<
+			"    |         / \\   \n" <<
+			"    |        /   \\  \n" <<
+			"           You lose! \n";
+		break;
+	}
+		
+	}
 }

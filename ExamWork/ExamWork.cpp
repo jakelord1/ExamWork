@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
     srand(time(NULL));
-    AddWord();
-    cout << GetWord();
+    Game();
+    //AddWord();
+    //cout << GetWord();
 }

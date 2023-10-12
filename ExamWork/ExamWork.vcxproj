@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ExamWork.cpp" />
+    <ClCompile Include="Word.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ToDo.txt" />
@@ -135,6 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions.h" />
+    <ClInclude Include="Statistic.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
