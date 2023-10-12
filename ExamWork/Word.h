@@ -16,9 +16,8 @@ public:
 		{
 			sword[i] = '_';
 		}
-		gstats.SetAtt(0);
-		gstats.SetW(0);
 	}
+	string Wordw() { return word; }
 	bool GetLetter();
 	bool WinLose();
 	int GetWins() { return gstats.GetWin(); }

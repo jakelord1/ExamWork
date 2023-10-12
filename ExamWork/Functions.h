@@ -49,18 +49,24 @@ Statistic Game() {
 	Word game_word(GetWord());
 	int fails = 0;
 	time_t time1 = time(NULL);
-	do {
+	while (game_word.GetLoses() != 1 && game_word.GetWins() != 1) {
+		system("cls");
 		Picture(fails);
 		if (!game_word.GetLetter()) {
 			fails++;
-			system("cls");
-			if (fails == 6) {
+			if (fails >= 6) {
+				system("cls");
 				Picture(fails);
 				game_word.SetLose(1);
-				break;
 			}
 		}
-	} while (game_word.GetLoses() != 1 || game_word.GetWins() != 1);
+	}
+	if (game_word.GetWins()) {
+		system("cls");
+		Picture(fails);
+		cout << endl << game_word.Wordw() << "\nYou won!";
+	}
+		
 	time_t time2 = time(NULL);
 	game_word.SetT(difftime(time2, time1));
 	return game_word.GetStats();
@@ -157,7 +163,7 @@ void Picture(int f) {
 			"    |        / I \\  \n" <<
 			"    |          I     \n" <<
 			"    |         / \\   \n" <<
-			"    |        /   \\  \n" <<
+			"    |        /   \\  \n\n" <<
 			"           You lose! \n";
 		break;
 	}

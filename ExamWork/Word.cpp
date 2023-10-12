@@ -3,7 +3,7 @@ using namespace std;
 
 bool Word::GetLetter()
 {
-	cout << word;
+	cout << word << endl;
 	char s = ' ';
 	int changes = 0;
 	cout << sword << endl;
