@@ -18,6 +18,7 @@ public:
 		}
 	}
 	string Wordw() { return word; }
+	void Stats() { gstats.ShowGameStats(); }
 	bool GetLetter();
 	bool WinLose();
 	int GetWins() { return gstats.GetWin(); }

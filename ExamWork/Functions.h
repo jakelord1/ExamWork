@@ -17,11 +17,12 @@ string GetWord() {
 	string word;
 	in.open("Words.txt");
 	if (in.is_open()) {
-		for (size_t i = 0; i < rand() % 10; i++)
+		for (size_t i = 0; i < rand() % 200; i++)
 		{
 			getline(in, word);
-			if (in.eof() || word == "") {
+			if (in.eof() || word.length() < 2) {
 				in.seekg(ios::beg);
+				getline(in, word);
 			}
 		}
 	}
@@ -36,7 +37,7 @@ void AddWord() {
 	ofstream out;
 	string word;
 	out.open("Words.txt", ios::app);	
-
+	cout << "Enter word:\n";
 	cin >> word;
 	for (size_t i = 0; i < word.length(); i++)
 	{
@@ -47,8 +48,8 @@ void AddWord() {
 
 Statistic Game() {
 	Word game_word(GetWord());
-	int fails = 0;
 	time_t time1 = time(NULL);
+	int fails = 0;
 	while (game_word.GetLoses() != 1 && game_word.GetWins() != 1) {
 		system("cls");
 		Picture(fails);
@@ -66,9 +67,9 @@ Statistic Game() {
 		Picture(fails);
 		cout << endl << game_word.Wordw() << "\nYou won!";
 	}
-		
 	time_t time2 = time(NULL);
 	game_word.SetT(difftime(time2, time1));
+	game_word.Stats();
 	return game_word.GetStats();
 }
 
@@ -170,3 +171,4 @@ void Picture(int f) {
 		
 	}
 }
+
