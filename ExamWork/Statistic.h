@@ -26,7 +26,7 @@ public:
 	int GetAtt() { return attempts; }
 	int GetWin() { return wins; }
 	int GetLose() { return loses; }
-	int GetTime() { return time; }
+	double GetTime() { return time; }
 	int GetGames() { return games; }
 
 	Statistic& operator+=(Statistic game);

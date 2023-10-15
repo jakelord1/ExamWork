@@ -3,18 +3,21 @@ using namespace std;
 
 bool Word::GetLetter()
 {
-	cout << word << endl;
+	cout << word << "\n";
+	
 	char s = ' ';
 	int changes = 0;
-	cout << sword << endl;
 	do {
-		cout << "Enter letter: ";
+		cout << "|	-> " << sword << " <-\n";
+		cout << "+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=+\n";
+		cout << "|       V Enter letter V       |\n";
+		cout << "+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=+\n -> ";
 		cin >> s;
-		if (s <= 97 && s >= 122) {
-			cout << "Its not a letter. You need to write only letters! Try again.\n";
-		}
-		else if (sword.find(s) != word.npos) {
-			cout << "You already entered this letter. Try again!\n";
+		cout << "\n+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=+\n";
+		if (sword.find(s) != word.npos) {
+			system("cls");
+			cout << "+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=+\n";
+			cout << "-> You already entered this letter. Try again!\n";
 		}
 		else {
 			break;

@@ -34,16 +34,18 @@ void Statistic::ShowStatistic() const
 	hours = (int)time / 60 / 60;
 	minutes = (int)time / 60 - hours * 60;
 	seconds = (int)time - minutes * 60 - hours * 60 * 60;
-	cout << "Wins: " << wins
-		<< "\nLoses: " << loses
-		<< "\nAttempts: " << attempts
-		<< "\nGames: " << games
-		<< "\nSpent time in game: " << hours  << " hours\t" << minutes << " minutes\t" << seconds << " seconds" << endl;
+	cout << "+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=+\n";
+	cout << "| -> Wins: " << wins
+		<< "\n| -> Loses: " << loses
+		<< "\n| -> Attempts: " << attempts
+		<< "\n| -> Games: " << games
+		<< "\n| -> Spent time in game: " << hours  << " hours\t" << minutes << " minutes\t" << seconds << " seconds" << endl;
+	cout << "+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=+\n";
 }
 
 void Statistic::ShowGameStats() const
 {
-	cout << "\nAttempts: " << attempts << "\nTime: " << time << " seconds\n";
+	cout << "| Attempts: " << attempts << "\n| Time: " << time << " seconds\n";
 }
 
 Statistic& Statistic::operator+=(Statistic game)
